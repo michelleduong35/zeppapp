@@ -1,13 +1,9 @@
-//import AutoGUI from "@silver-zepp/autogui";
-//import * as hmUI from "@zos/ui";
-//import { log as Logger } from "@zos/utils";
-//import { TEXT_STYLE } from "zosLoader:./index.page.[pf].layout.js";
-//import { createWidget, widget, prop, event } from "@zos/ui";
-//import { Vibrator, VIBRATOR_SCENE_DURATION } from "@zos/sensor";
-import { push } from "@zos/router";
+import AutoGUI from "@silver-zepp/autogui";
+import { createWidget, widget, prop } from "@zos/ui";
 import { create, id } from "@zos/media";
 
 const player = create(id.PLAYER);
+const gui = new AutoGUI();
 
 player.addEventListener(player.event.PREPARE, function (result) {
   if (result) {
@@ -34,5 +30,14 @@ Page({
     //plays alarm on creation
     player.prepare();
   },
-  build() {},
+  build() {
+    const img_hour = createWidget(widget.IMG);
+    img_hour.setProperty(prop.MORE, {
+      x: 0,
+      y: 0,
+      w: 500,
+      h: 500,
+      src: "mapImage3.png",
+    });
+  },
 });

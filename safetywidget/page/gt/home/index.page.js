@@ -1,6 +1,3 @@
-import AutoGUI from "@silver-zepp/autogui";
-//import * as hmUI from "@zos/ui";
-//import { log as Logger } from "@zos/utils";
 import { TEXT_STYLE } from "zosLoader:./index.page.[pf].layout.js";
 import { createWidget, widget, prop, event } from "@zos/ui";
 import { Vibrator, VIBRATOR_SCENE_DURATION } from "@zos/sensor";
