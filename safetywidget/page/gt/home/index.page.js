@@ -1,18 +1,14 @@
-import * as hmUI from "@zos/ui";
 import AutoGUI from "@silver-zepp/autogui";
-import { log as Logger } from "@zos/utils";
+//import * as hmUI from "@zos/ui";
+//import { log as Logger } from "@zos/utils";
 import { TEXT_STYLE } from "zosLoader:./index.page.[pf].layout.js";
 import { createWidget, widget, prop, event } from "@zos/ui";
-const gui = new AutoGUI();
-/*const logger = Logger.getLogger("button1");
+import { Vibrator, VIBRATOR_SCENE_DURATION } from "@zos/sensor";
+import { push } from "@zos/router";
 
-const button1 = gui.button("Need Safety!", () => {
-  my_text.update({ text: "click when safe" });
-
-  const props = my.text.getProperties();
-  console.log(`Text: ${props.text}
-              Height: ${props.h}`);
-});*/
+//create vibrator
+const vibrator = new Vibrator();
+vibrator.setMode(VIBRATOR_SCENE_STRONG_REMINDER);
 
 Page({
   build() {
@@ -20,28 +16,34 @@ Page({
     const shadowSOS = createWidget(widget.CIRCLE, {
       center_x: 240,
       center_y: 250,
-      radius: 120,
+      radius: 150,
       color: 0x3f2222,
       alpha: 255,
     });
 
-    //create sos button
+    //create sos button, on click moves, vibrates, and redirects to map (where it sounds on open)
     const buttonSOS = createWidget(widget.BUTTON, {
-      x: 120,
-      y: 105,
-      w: 240,
-      h: 240,
-      radius: 240,
+      x: 100,
+      y: 90,
+      w: 300,
+      h: 300,
+      radius: 300,
       normal_color: 0x9e2828,
       press_color: 0x9e2828,
       text: "SOS",
+      text_size: 120,
       click_func: (button_widget) => {
         button_widget.setProperty(prop.MORE, {
-          x: 120,
-          y: 130,
-          w: 240,
-          h: 240,
-          radius: 240,
+          x: 90,
+          y: 115,
+          w: 300,
+          h: 300,
+          radius: 300,
+          TEXT_STYLE,
+        });
+        vibrator.start();
+        push({
+          url: "page/gt/home/map.page",
         });
       },
     });

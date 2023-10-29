@@ -1,15 +1,15 @@
 {
   "configVersion": "v3",
   "app": {
-    "appId": 24796,
-    "appName": "safetywidget",
+    "appId": 1038092,
+    "appName": "Safety Widget",
     "appType": "app",
     "version": {
       "code": 1,
       "name": "1.0.1"
     },
     "icon": "icon.png",
-    "vender": "zepp",
+    "vender": "zepplins",
     "description": "app for safety notification and suggested open routes"
   },
   "permissions": ["data:os.device.info", "device:os.local_storage"],
@@ -25,7 +25,7 @@
     "gt": {
       "module": {
         "page": {
-          "pages": ["page/gt/home/index.page"]
+          "pages": ["page/gt/home/index.page", "page/gt/home/map.page"]
         }
       },
       "platforms": [
