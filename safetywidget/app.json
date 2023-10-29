@@ -12,7 +12,11 @@
     "vender": "zepplins",
     "description": "app for safety notification and suggested open routes"
   },
-  "permissions": ["data:os.device.info", "device:os.local_storage"],
+  "permissions": [
+    "data:os.device.info",
+    "device:os.local_storage",
+    "device:os.geolocation"
+  ],
   "runtime": {
     "apiVersion": {
       "compatible": "3.0.0",
